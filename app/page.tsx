@@ -1,13 +1,15 @@
 'use client';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useChat } from 'ai/react';
 import MessageItem from './components/MessageItem';
 import IconClear from './components/icons/Clear';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit, setMessages } = useChat();
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const [isClient, setIsClient] = useState(false);
 
   const clear = () => {
     setMessages([]);
@@ -17,20 +19,17 @@ export default function Chat() {
     }
   };
 
-  // const handleSendClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-  //   e.preventDefault();
-  //   if (inputRef.current) {
-  //     handleSubmit(e);
-  //     inputRef.current.value = '';
-  //     inputRef.current.style.height = 'auto';
-  //   }
-  // };
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
+  if (!isClient) {
+    return null;
+  }
 
   return (
-    
-    
-    <div className="flex flex-col w-full max-w-prose py-15 mx-auto stretch">
+    <div className="flex flex-col min-h-screen">
+    <main className="flex flex-col w-full max-w-prose py-15 mx-auto stretch flex-grow">
     <Header />
       {messages.map(m => (
         <div key={m.id} className="whitespace-pre-wrap">
@@ -38,30 +37,6 @@ export default function Chat() {
         </div>
       ))}
 
-      {/* <div className="gen-text-wrapper relative">
-        <textarea
-          ref={inputRef}
-          onChange={handleInputChange}
-          placeholder="Enter something..."
-          autoComplete="off"
-          autoFocus
-          value={input}
-          onInput={() => {
-            if (inputRef.current) {
-              inputRef.current.style.height = 'auto';
-              inputRef.current.style.height = `${inputRef.current.scrollHeight}px`;
-            }
-          }}
-          rows={1}
-          className="gen-textarea"
-        />
-        <button className="my-4 fc gap-2 transition-opacity" onClick={handleSendClick}>
-          Send
-        </button>
-        <button title="Clear" onClick={clear} className="my-4 fc gap-2 transition-opacity">
-          <IconClear />
-        </button>
-      </div> */}
       <form onSubmit={handleSubmit} className="flex items-center sticky bottom-0 w-full max-w-prose p-2 mb-8  border-gray-300 rounded shadow-xl bg-white">
         <input
           ref={inputRef}
@@ -74,7 +49,8 @@ export default function Chat() {
           <IconClear />
         </button>
       </form>
-
-    </div> 
+    </main> 
+    <Footer />
+    </div>
   );
 }
