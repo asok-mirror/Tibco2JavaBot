@@ -42,7 +42,7 @@ export default function Chat() {
           ref={inputRef}
           className="flex-grow p-2 border border-gray-300 rounded"
           value={input}
-          placeholder="Say something..."
+          placeholder="Ask me about Tibco to Java migration..."
           onChange={handleInputChange}
         />
         <button title="Clear" onClick={clear} className="ml-2 p-2 bg-red-500 text-white rounded">

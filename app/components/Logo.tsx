@@ -15,7 +15,7 @@ const Logo: React.FC = () => {
     return (
         <div className='w-32'>
             <button onClick={handleClick} className="focus:outline-none">
-                <Image src={MacysLogo} alt="Macy's Logo" width={128} height={128} />
+                <Image src={MacysLogo} alt="Macy's Logo" />
             </button>
         </div>
     );
