@@ -14,7 +14,7 @@ const Header: React.FC = () => {
   </div>
   <p className="mt-1 op-60 bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% ...">
     Based on
-    <a href="https://gemini.google.com/"> Gemini Pro API.</a>
+    <a href="https://gemini.google.com/"> Gemini 1.5 Pro Model.</a>
   </p>
 </header>
     );
