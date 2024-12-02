@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) based Gemini Chat Bot for Macy's.
+This is a [Next.js](https://nextjs.org) based Gemini Chat Bot.
 
 ## Getting Started
 
@@ -9,7 +9,7 @@ npm run dev
 # or
 yarn dev
 # or
-pnpm dev -- prefrerred
+pnpm dev -- preferred
 # or
 bun dev
 ```
