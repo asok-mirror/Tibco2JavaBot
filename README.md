@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) based Gemini Chat Bot for Macy's.
+This is a [Next.js](https://nextjs.org) based Gemini Chat Bot for that aids in Tibco to Java Springboot conversion.
 
 ## Getting Started
 
